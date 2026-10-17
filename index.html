@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIURM — Ремонт и дизайн квартир под ключ в Перми</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Arial', sans-serif; color: #1a1a1a; line-height: 1.6; background: #fff; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+header { background: #0a0a0a; position: sticky; top: 0; z-index: 100; padding: 15px 0; border-bottom: 1px solid #333; }
+.header-inner { display: flex; justify-content: space-between; align-items: center; }
+.logo { display: flex; align-items: center; gap: 12px; }
+.logo-text { font-weight: 900; color: #facc15; font-size: 26px; letter-spacing: 2px; }
+.logo p { font-size: 11px; color: #888; letter-spacing: 1px; text-transform: uppercase; }
+nav a { margin: 0 15px; text-decoration: none; color: #ccc; font-weight: 400; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+nav a:hover { color: #facc15; }
+.header-phone { font-weight: 700; color: #facc15; text-decoration: none; font-size: 18px; }
+.btn { display: inline-block; background: #facc15; color: #0a0a0a; padding: 15px 35px; border-radius: 0; text-decoration: none; font-weight: 800; border: none; cursor: pointer; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+.btn:hover { background: #eab308; }
+.btn-outline { background: transparent; border: 2px solid #facc15; color: #facc15; }
+.btn-outline:hover { background: #facc15; color: #0a0a0a; }
+
+/* HERO SECTION */
+.hero { background: #0a0a0a; color: #fff; padding: 100px 0; position: relative; }
+.hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.hero h1 { font-size: 52px; font-weight: 900; line-height: 1.1; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
+.hero h1 span { color: #facc15; }
+.hero p { font-size: 18px; color: #999; margin-bottom: 40px; max-width: 90%; }
+.hero-stats { display: flex; gap: 40px; margin-top: 50px; border-top: 1px solid #333; padding-top: 30px; }
+.hero-stats .num { font-size: 28px; font-weight: 900; color: #facc15; }
+.hero-stats .label { font-size: 13px; color: #666; text-transform: uppercase; letter-spacing: 1px; }
+.hero-photo { border-radius: 0; overflow: hidden; height: 550px; }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ABOUT SECTION */
+.about { padding: 100px 0; background: #f8f9fa; }
+.section-title { text-align: center; margin-bottom: 60px; }
+.section-title h2 { font-size: 40px; font-weight: 900; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+.section-title p { color: #666; font-size: 16px; text-transform: uppercase; letter-spacing: 2px; }
+.section-title h2::after { content: ''; display: block; width: 80px; height: 3px; background: #facc15; margin: 20px auto 0; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.about-text h3 { font-size: 30px; font-weight: 800; margin-bottom: 25px; }
+.about-text p { margin-bottom: 20px; color: #444; font-size: 16px; }
+.about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 40px; }
+.feature { border-left: 3px solid #facc15; padding-left: 20px; }
+.feature h4 { font-size: 18px; font-weight: 800; margin-bottom: 8px; text-transform: uppercase; }
+.feature p { font-size: 14px; color: #666; }
+.about-photo { height: 550px; overflow: hidden; }
+.about-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+/* SERVICES SECTION */
+.services { padding: 100px 0; background: #0a0a0a; color: #fff; }
+.services .section-title h2 { color: #fff; }
+.services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+.service-card { border: 1px solid #333; padding: 40px; transition: 0.3s; position: relative; }
+.service-card:hover { border-color: #facc15; background: #111; }
+.service-card h3 { font-size: 22px; font-weight: 800; margin-bottom: 15px; color: #fff; text-transform: uppercase; }
+.service-card .price { font-size: 30px; font-weight: 900; color: #facc15; margin-bottom: 20px; }
+.service-card p { color: #888; font-size: 15px; }
+
+/* PORTFOLIO */
+.portfolio { padding: 100px 0; }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.gallery-item { height: 350px; overflow: hidden; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.gallery-item:hover img { transform: scale(1.05); }
+
+/* REVIEWS */
+.reviews { padding: 100px 0; background: #f8f9fa; }
+.review-box { max-width: 800px; margin: 0 auto; text-align: center; background: #fff; padding: 60px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.review-box .stars { color: #facc15; font-size: 24px; margin-bottom: 25px; }
+.review-box p { font-size: 20px; font-style: italic; color: #333; margin-bottom: 30px; line-height: 1.8; }
+.review-box .author { font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 14px; }
+
+/* CONTACTS */
+.contacts { padding: 100px 0; }
+.contacts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+.contacts-grid h3 { font-size: 32px; font-weight: 900; margin-bottom: 30px; text-transform: uppercase; }
+.contact-item { display: flex; gap: 20px; margin-bottom: 25px; align-items: flex-start; }
+.contact-item .icon { font-size: 24px; color: #facc15; }
+.contact-item h4 { font-size: 14px; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+.contact-item p, .contact-item a { font-size: 18px; font-weight: 600; color: #1a1a1a; text-decoration: none; }
+.contact-map { background: #eee; height: 400px; display: flex; align-items: center; justify-content: center; color: #888; font-size: 16px; }
+footer { background: #0a0a0a; color: #666; padding: 40px 0; text-align: center; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+footer a { color: #facc15; text-decoration: none; }
+
+@media (max-width: 768px) {
+  .hero-inner, .about-grid, .contacts-grid, .services-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 36px; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  nav { display: none; }
+  .hero-stats { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">
+      <div class="logo-text">SIURM</div>
+      <p>Ремонт и дизайн</p>
+    </div>
+    <nav>
+      <a href="#about">О нас</a>
+      <a href="#services">Услуги</a>
+      <a href="#portfolio">Проекты</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a href="tel:+79504570645" class="header-phone">+7 (950) 457-06-45</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div>
+      <h1>Создаем <span>пространство</span> для жизни и работы</h1>
+      <p>Компания SIURM — чистая отделка квартир под ключ в Перми. Мы превращаем бетонные коробки в стильные и уютные интерьеры с 2021 года.</p>
+      <div class="hero-buttons">
+        <a href="#contacts" class="btn">Обсудить проект</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="num">5 718</div><div class="label">подписчиков</div></div>
+        <div><div class="num">5,0</div><div class="label">рейтинг</div></div>
+        <div><div class="num">от 1.5 млн</div><div class="label">ремонт под ключ</div></div>
+      </div>
+    </div>
+    <div class="hero-photo"><img src="photo1.jpg" alt="Ремонт SIURM"></div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="section-title">
+      <h2>О компании</h2>
+      <p>Качество, которое видно</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <h3>Ремонт с гарантией и без стресса</h3>
+        <p>Мы занимаемся отделкой помещений с 2021 года. За это время мы поняли главное: клиенту нужен не просто ремонт, а спокойствие. Поэтому у нас всегда чистота на объекте, четкие сроки и прозрачная смета.</p>
+        <p>Работаем с системой звукоизоляции ЗИПС, сложными потолками и авторским дизайном. Подходим к каждому проекту индивидуально.</p>
+        <div class="about-features">
+          <div class="feature"><h4>Идеальная чистота</h4><p>Убираем за собой каждый день</p></div>
+          <div class="feature"><h4>Строгие сроки</h4><p>Задержки исключены договором</p></div>
+          <div class="feature"><h4>Свой дизайнер</h4><p>Поможем создать интерьер</p></div>
+          <div class="feature"><h4>Авторский надзор</h4><p>Контроль качества на всех этапах</p></div>
+        </div>
+      </div>
+      <div class="about-photo"><img src="photo2.jpg" alt="Процесс ремонта"></div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-title"><h2>Услуги и цены</h2><p>Прозрачное ценообразование</p></div>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Ремонт под ключ</h3>
+        <div class="price">от 1 500 000 ₽</div>
+        <p>Полный цикл работ: от демонтажа до финишной отделки и расстановки мебели.</p>
+      </div>
+      <div class="service-card">
+        <h3>Комплексная отделка</h3>
+        <div class="price">от 12 000 ₽/м²</div>
+        <p>Черновые и чистовые работы, электрика, сантехника, выравнивание стен.</p>
+      </div>
+      <div class="service-card">
+        <h3>Расширенная отделка</h3>
+        <div class="price">от 14 000 ₽/м²</div>
+        <p>Сложные дизайнерские решения, теневые потолки, скрытый монтаж.</p>
+      </div>
+      <div class="service-card">
+        <h3>Базовая отделка</h3>
+        <div class="price">от 9 000 ₽/м²</div>
+        <p>Качественный ремонт для сдачи квартиры в аренду или бюджетный вариант.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="section-title"><h2>Наши проекты</h2><p>Примеры выполненных работ</p></div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="photo3.jpg" alt="Проект"></div>
+      <div class="gallery-item"><img src="photo4.jpg" alt="Проект"></div>
+      <div class="gallery-item"><img src="photo5.jpg" alt="Проект"></div>
+      <div class="gallery-item"><img src="photo6.jpg" alt="Проект"></div>
+      <div class="gallery-item"><img src="photo7.jpg" alt="Проект"></div>
+      <div class="gallery-item"><img src="photo8.jpg" alt="Проект"></div>
+      <div class="gallery-item"><img src="photo9.jpg" alt="Проект"></div>
+      <div class="gallery-item"><img src="photo10.jpg" alt="Проект"></div>
+      <div class="gallery-item"><img src="photo11.jpg" alt="Проект"></div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="container">
+    <div class="section-title"><h2>Отзывы</h2><p>Мнение наших клиентов</p></div>
+    <div class="review-box">
+      <div class="stars">★★★★★</div>
+      <p>«Ребята, спасибо вам огромное! Выбрала вас и не пожалела. Ремонт в моей квартире выполнили на 10 из 10. Особенно отмечу, какая у ребят требовательность к чистоте и порядку на объекте. Спасибо еще раз и удачи в делах!»</p>
+      <div class="author">— Мария Ж. (Яндекс.Карты)</div>
+    </div>
+  </div>
+</section>
+
+<section class="contacts" id="contacts">
+  <div class="container">
+    <div class="section-title"><h2>Контакты</h2><p>Оставьте заявку на бесплатный замер</p></div>
+    <div class="contacts-grid">
+      <div>
+        <h3>ООО "СИУРМ"</h3>
+        <div class="contact-item">
+          <div class="icon">📍</div>
+          <div><h4>Офис</h4><p>г. Пермь, ул. Чкалова, 9</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="icon">📞</div>
+          <div><h4>Телефон</h4><p><a href="tel:+79504570645">+7 (950) 457-06-45</a></p></div>
+        </div>
+        <div class="contact-item">
+          <div class="icon">🌐</div>
+          <div><h4>ВКонтакте</h4><p><a href="https://vk.com/siurm" target="_blank">vk.com/siurm</a></p></div>
+        </div>
+        <div class="contact-item">
+          <div class="icon">👤</div>
+          <div><h4>Руководитель</h4><p>Тарас Пославский</p></div>
+        </div>
+      </div>
+      <div class="contact-map">🗺️ Карта — ул. Чкалова, 9, Пермь</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 SIURM · Ремонт и дизайн квартир в Перми · <a href="tel:+79504570645">+7 (950) 457-06-45</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
